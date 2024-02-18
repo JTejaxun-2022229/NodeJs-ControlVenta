@@ -1,0 +1,82 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "productoColeccion",
+    "dateExported": "2024-02-18T21:27:43.083Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "becf393f-402f-4aae-8aaa-5a35169f4303",
+            "colId": "70e27494-6f70-486e-ab4e-8ba1c574ee88",
+            "containerId": "",
+            "name": "post producto",
+            "url": "http://localhost:3000/api/productos",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2024-02-18T21:17:29.746Z",
+            "modified": "2024-02-18T21:20:15.872Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"nombre\":\"Mouse\",\n  \"descripcion\": \"pefiferico de entrada\",\n  \"precio\": \"150.00\",\n  \"existencia\": \"40\",\n  \"categoria\": \"Lacteos\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "17a5af3e-24b1-4973-af28-156810857547",
+            "colId": "70e27494-6f70-486e-ab4e-8ba1c574ee88",
+            "containerId": "",
+            "name": "get producto",
+            "url": "http://localhost:3000/api/productos",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2024-02-18T21:21:01.660Z",
+            "modified": "2024-02-18T21:21:07.318Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "3d7b9341-fca4-46e2-a1a1-8b3e02025b4e",
+            "colId": "70e27494-6f70-486e-ab4e-8ba1c574ee88",
+            "containerId": "",
+            "name": "get Producto By Id",
+            "url": "",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2024-02-18T21:21:30.920Z",
+            "modified": "2024-02-18T21:21:30.920Z",
+            "headers": []
+        },
+        {
+            "_id": "5c8f554f-1e97-4b03-b8fe-edb1758c9f4f",
+            "colId": "70e27494-6f70-486e-ab4e-8ba1c574ee88",
+            "containerId": "",
+            "name": "put Producto",
+            "url": "http://localhost:3000/api/productos",
+            "method": "PUT",
+            "sortNum": 40000,
+            "created": "2024-02-18T21:21:44.397Z",
+            "modified": "2024-02-18T21:27:35.741Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "3964e574-f4e5-446d-81f0-1fe36d048a57",
+            "colId": "70e27494-6f70-486e-ab4e-8ba1c574ee88",
+            "containerId": "",
+            "name": "delete Producto",
+            "url": "http://localhost:3000/api/productos",
+            "method": "DELETE",
+            "sortNum": 50000,
+            "created": "2024-02-18T21:24:18.098Z",
+            "modified": "2024-02-18T21:27:33.673Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        }
+    ]
+}
