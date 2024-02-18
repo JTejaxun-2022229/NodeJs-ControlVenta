@@ -9,4 +9,4 @@ const CarritoSchema = Schema({
     }
 });
 
-module.exports = models('Carrito', CarritoSchema)
+module.exports = model('Carrito', CarritoSchema)
