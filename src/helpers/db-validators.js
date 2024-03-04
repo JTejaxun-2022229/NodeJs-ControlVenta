@@ -1,29 +1,23 @@
-const Role = require('../../models/role');
-const Usuario = require('../../models/usuario');
+import Role  from '../role/role.model.js';
+import Admin from '../admin/admin.model.js';
 
-const esRoleValido = async (role = '') => {
+export const isRoleValid = async (role = '') => {
     const existeRol = await Role.findOne({role});
     if(!existeRol){
-        throw new Error(`El role ${ role } no existe en la base de datos`);
+        throw new Error(`Role ${ role } does not exist in the database`);
     }
 }
 
-const existenteEmail = async (correo = '') => {
-    const existeEmail = await Usuario.findOne({correo});
+export const existEmailAdmin = async (email = '') => {
+    const existeEmail = await Admin.findOne({email});
     if(existeEmail){
-        throw new Error(`El correo ${ correo } ya está registrado`);
+        throw new Error(`Email ${ email } is already registered`);
     }
 }
 
-const existeUsuarioById = async (id = '') => {
-    const existeUsuario = await Usuario.findOne({id});
-    if(existeUsuario){
-        throw new Error(`El usuario con el ${ id } no existe`)
+export const existAdminById = async (id = '') => {
+    const existAdmin = await Admin.findOne({id});
+    if(existAdmin){
+        throw new Error(`Admin with ${ id } does not exist`)
     }
-}
-
-module.exports = {
-    esRoleValido,
-    existenteEmail,
-    existeUsuarioById
 }
