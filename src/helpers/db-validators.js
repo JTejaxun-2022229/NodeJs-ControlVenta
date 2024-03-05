@@ -23,9 +23,9 @@ export const existAdminById = async (id = '') => {
     }
 }
 
-export const disableAdmin = async (status = '') => {
+export const disableAdmin = async (id = '') => {
     const adminStatus = await Admin.findOne({ id });
-    if (adminStatus) {
+    if (!adminStatus.status) {
         throw new Error(`Admin with ${id} is alredy disable`)
     }
 }
@@ -44,9 +44,9 @@ export const existCategoryById = async (id = '') => {
     }
 }
 
-export const disableCategory = async (status = '') => {
+export const disableCategory = async (id = '') => {
     const categoryStatus = await Category.findOne({ id });
-    if (categoryStatus){
+    if (!categoryStatus.status){
         throw new Error (`Category with ${id} is alredy disable`)
     }
 }
