@@ -1,0 +1,75 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "category collection",
+    "dateExported": "2024-03-05T20:49:08.377Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "d4d7c309-aef9-4b66-a895-59b326e317f9",
+            "colId": "3525272b-73ff-4590-a26e-65435c38a964",
+            "containerId": "",
+            "name": "categoty post",
+            "url": "http://localhost:3000/api/v1/category",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2024-03-05T19:59:55.705Z",
+            "modified": "2024-03-05T20:02:48.241Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"categoryName\": \"Cereales\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "6333a8f8-b569-4520-aafc-967933b7b092",
+            "colId": "3525272b-73ff-4590-a26e-65435c38a964",
+            "containerId": "",
+            "name": "category get",
+            "url": "http://localhost:3000/api/v1/category",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2024-03-05T20:01:45.775Z",
+            "modified": "2024-03-05T20:03:10.217Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "654c6cf1-e5d3-4581-9cb6-6b4447f27e8b",
+            "colId": "3525272b-73ff-4590-a26e-65435c38a964",
+            "containerId": "",
+            "name": "category put",
+            "url": "http://localhost:3000/api/v1/category/65e77a0d6d79eedd6b59af73",
+            "method": "PUT",
+            "sortNum": 30000,
+            "created": "2024-03-05T20:03:43.198Z",
+            "modified": "2024-03-05T20:31:44.363Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"categoryName\": \"Farmacia\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "341c820a-69b5-4a19-bae1-85f1a82848f6",
+            "colId": "3525272b-73ff-4590-a26e-65435c38a964",
+            "containerId": "",
+            "name": "category delete",
+            "url": "http://localhost:3000/api/v1/category/65e77a0d6d79eedd6b59af73",
+            "method": "DELETE",
+            "sortNum": 40000,
+            "created": "2024-03-05T20:20:32.555Z",
+            "modified": "2024-03-05T20:23:28.113Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        }
+    ]
+}

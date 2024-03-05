@@ -23,7 +23,7 @@ router.post(
 );
 
 router.put(
-    ":/id",
+    "/:id",
     [
         validateJWT,
         isAdminRole,

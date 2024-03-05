@@ -31,7 +31,6 @@ export const adminGet = async (req = request, res = response) => {
         const [total, companies] = await Promise.all([
             Company.countDocuments({ ...query, ...searchQuery }),
             Company.find({ ...query, ...searchQuery })
-                .sort(sortQuery)
                 .skip(Number(from))
                 .limit(Number(limit))
         ]);
@@ -41,7 +40,6 @@ export const adminGet = async (req = request, res = response) => {
             companies
         });
     } catch (error) {
-        console.error(error);
         res.status(500).json({ message: 'Internal Server Error' });
     }
 };
