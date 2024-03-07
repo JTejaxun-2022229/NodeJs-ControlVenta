@@ -1,6 +1,6 @@
-import  { Schema, model } from "mongoose";
+import  mongoose from "mongoose";
 
-const ProductSchema = Schema({
+const ProductSchema = mongoose.Schema({
 
     productName: {
         type: String,
@@ -41,4 +41,4 @@ const ProductSchema = Schema({
     versionKey: false
 });
 
-export default model('Product', ProductSchema);
+export default mongoose.model('Product', ProductSchema);

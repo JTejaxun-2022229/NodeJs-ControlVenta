@@ -5,15 +5,10 @@ import cors from 'cors';
 import helmet from 'helmet';
 import morgan from 'morgan';
 import { dbConnection } from './mongo.js';
-import adminRoutes from '../src/admin/admin.routes.js';
-import categoryRoutes from '../src/category/category.routes.js';
-
 class Server{
     constructor(){
         this.app = express();
         this.port = process.env.PORT;
-        this.adminPath = '/api/v1/admin';
-        this.categoryPath = '/api/v1/category';
 
         this.middlewares();
         this.conectarDB();
@@ -33,8 +28,6 @@ class Server{
     };
 
     routes(){
-        this.app.use(this.adminPath, adminRoutes);
-        this.app.use(this.categoryPath, categoryRoutes);
     };
 
     listen(){
