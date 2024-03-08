@@ -1,7 +1,7 @@
 import { request, response } from 'express';
-import Product from './product.model';
+import Product from './product.model.js';
 
-export const createProduct = async (res = response, req = request) => {
+export const createProduct = async (req = request, res = response) => {
     const { productName, details, unitPrice, stock, category } = req.body;
     const product = new Product({ productName, details, unitPrice, stock, category });
 
@@ -10,14 +10,9 @@ export const createProduct = async (res = response, req = request) => {
     res.status(200).json({ msg: 'Product create successfully', product });
 }
 
-export const getProduct = async (res = response, req = request) => {
+export const getProduct = async (req = request, res = response) => {
     const { from, limit, searchKey, ...filters } = req.query;
     const query = { status: true };
-    if (category && category !== 'Products') {
-        query.category = category;
-    } else if (!category) {
-        query.category = { $ne: 'Products' };
-    }
     let searchQuery = {};
 
     if (searchKey) {
@@ -45,20 +40,20 @@ export const getProduct = async (res = response, req = request) => {
 }
 
 export const updateProduct = async (req, res = response) => {
-    const {id} = req.params;
-    const {_id, status, ...remain} = req.body;
+    const { id } = req.params;
+    const { _id, status, ...remain } = req.body;
 
     await Product.findByIdAndUpdate(id, remain);
 
-    const product = await Product.finOne({_id: id});
+    const product = await Product.findOne({ _id: id });
 
-    res.status(200).json({msg: 'Product was update', product})
+    res.status(200).json({ msg: 'Product was update', product })
 }
 
-export const deleteProduct = async (req, res ) => {
-    const {id} = req.params;
+export const deleteProduct = async (req, res) => {
+    const { id } = req.params;
 
-    const product = await Product.findByIdAndUpdate(id, {status: false});
+    const product = await Product.findByIdAndUpdate(id, { status: false });
 
-    res.status(200).json({msg: 'Product has been disable', product})
+    res.status(200).json({ msg: 'Product has been disable', product })
 }

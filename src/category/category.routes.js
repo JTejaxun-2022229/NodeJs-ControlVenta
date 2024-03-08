@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { check } from "express-validator";
-import { categoryPost, categoryGet, categoryPut, categoryDelete } from "./category.controller.js";
+import { createCategory, getCategory, updateCategory, deleteCategory } from "./category.controller.js";
 import { existCategory, existCategoryById } from "../helpers/db-validators.js";
 import { validateFields } from "../middlewares/validateFields.js";
 import { validateJWT } from "../middlewares/validateJWT.js";
@@ -9,7 +9,7 @@ const router = Router();
 
 router.get(
     "/",
-    categoryGet
+    getCategory
 );
 
 router.post(
@@ -19,7 +19,7 @@ router.post(
         check("categoryName").custom(existCategory),
         validateFields
     ],
-    categoryPost
+    createCategory
 );
 
 router.put(
@@ -29,7 +29,7 @@ router.put(
         check("id").custom(existCategoryById),
         validateFields
     ],
-    categoryPut
+    updateCategory
 );
 
 router.delete(
@@ -39,7 +39,7 @@ router.delete(
         check("id").custom(existCategoryById),
         validateFields
     ],
-    categoryDelete
+    deleteCategory
 )
 
 export default router;

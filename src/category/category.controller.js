@@ -1,7 +1,7 @@
 import { response, request } from "express";
 import Category from './category.model.js';
 
-export const categoryPost = async (req = request, res = response) => {
+export const createCategory = async (req = request, res = response) => {
     const { categoryName } = req.body;
     const category = new Category({ categoryName });
 
@@ -10,7 +10,7 @@ export const categoryPost = async (req = request, res = response) => {
     res.status(200).json({ category });
 };
 
-export const categoryGet = async (req = request, res = response) => {
+export const getCategory = async (req = request, res = response) => {
     const { from, limit, searchKey, ...filters } = req.query;
     const query = { status: true };
     let searchQuery = {};
@@ -39,7 +39,7 @@ export const categoryGet = async (req = request, res = response) => {
     }
 };
 
-export const categoryPut = async (req, res = response) => {
+export const updateCategory = async (req, res = response) => {
     const { id } = req.params;
     const { _id, ...remain } = req.body;
 
@@ -50,7 +50,7 @@ export const categoryPut = async (req, res = response) => {
     res.status(200).json({ msg: 'Category was udpate', category });
 }
 
-export const categoryDelete = async (req, res) => {
+export const deleteCategory = async (req, res) => {
     const { id } = req.params;
 
     const category = await Category.findByIdAndUpdate(id, { status: false });

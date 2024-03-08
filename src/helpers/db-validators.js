@@ -1,6 +1,7 @@
 import Role from '../role/role.model.js';
 import Category from '../category/category.model.js';
 import User from '../user/user.model.js'
+import Product from '../product/product.model.js'
 
 export const isRoleValid = async (role = '') => {
     const existeRol = await Role.findOne({ role });
@@ -41,5 +42,19 @@ export const disableCategory = async (id = '') => {
     const categoryStatus = await Category.findOne({ id });
     if (!categoryStatus.status) {
         throw new Error(`Category with ${id} is alredy disable`)
+    }
+}
+
+export const existProduct = async (productName = '') => {
+    const existName = await Product.findOne({productName});
+    if(existName){
+        throw new Error(`Product ${productName} already exist`)
+    }
+}
+
+export const existProductById = async (id = '') => {
+    const existProduct = await Product.findOne({ id });
+    if (existProduct) {
+        throw new Error(`Producto with ${id} does not exit in the database`);
     }
 }

@@ -12,7 +12,7 @@ const ProductSchema = mongoose.Schema({
     },
     unitPrice: {
         type: Number,
-        required: [true, "Unit price is neccessary"]
+        required: [true, "Unitprice is neccessary"]
     },
     stock: {
         type: Number,
