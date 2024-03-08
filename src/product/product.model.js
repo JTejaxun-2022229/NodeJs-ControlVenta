@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+import mongoose, { Schema } from "mongoose";
 
 const ProductSchema = mongoose.Schema({
 
@@ -19,7 +19,8 @@ const ProductSchema = mongoose.Schema({
         required: [true, "Stock is necessary"],
     },
     category: {
-        type: String,
+        type: Schema,
+        ref: 'category',
         enum: [],
         default: "Product"
     },

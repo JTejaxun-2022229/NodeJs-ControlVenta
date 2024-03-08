@@ -4,6 +4,7 @@ import { createProduct, getProduct, updateProduct, deleteProduct } from "./produ
 import { existProduct, existProductById } from "../helpers/db-validators.js"
 import { validateFields } from "../middlewares/validateFields.js";
 import { validateJWT } from "../middlewares/validateJWT.js";
+import { roleIsAuthorized } from "../middlewares/validateRole.js"
 
 const router = Router();
 
@@ -15,6 +16,8 @@ router.get(
 router.post(
     "/",
     [
+        validateJWT,
+        roleIsAuthorized("ADMIN_ROLE"),
         check("productName", "Product name is neccessary").not().isEmpty(),
         check("productName").custom(existProduct),
         check("unitPrice", "Unit price is neccessary").not().isEmpty(),
@@ -27,6 +30,8 @@ router.post(
 router.put(
     "/:id",
     [
+        validateJWT,
+        roleIsAuthorized("ADMIN_ROLE"),
         check("id", "This is an invalid id").isMongoId(),
         check("id").custom(existProductById),
         validateFields
@@ -37,6 +42,8 @@ router.put(
 router.delete(
     "/:id",
     [
+        validateJWT,
+        roleIsAuthorized("ADMIN_ROLE"),
         check("id", "This is an invalid id").isMongoId(),
         check("id").custom(existProductById),
         validateFields

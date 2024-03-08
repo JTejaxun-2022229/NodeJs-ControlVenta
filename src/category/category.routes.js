@@ -4,17 +4,22 @@ import { createCategory, getCategory, updateCategory, deleteCategory } from "./c
 import { existCategory, existCategoryById } from "../helpers/db-validators.js";
 import { validateFields } from "../middlewares/validateFields.js";
 import { validateJWT } from "../middlewares/validateJWT.js";
+import { roleIsAuthorized } from "../middlewares/validateRole.js";
 
 const router = Router();
 
 router.get(
     "/",
+    validateJWT,
+    roleIsAuthorized("ADMIN_ROLE"),
     getCategory
 );
 
 router.post(
     "/",
     [
+        validateJWT,
+        roleIsAuthorized("ADMIN_ROLE"),
         check("categoryName").not().isEmpty(),
         check("categoryName").custom(existCategory),
         validateFields
@@ -25,6 +30,8 @@ router.post(
 router.put(
     "/:id",
     [
+        validateJWT,
+        roleIsAuthorized("ADMIN_ROLE"),
         check("id", "Id is not valid").isMongoId(),
         check("id").custom(existCategoryById),
         validateFields
@@ -35,6 +42,8 @@ router.put(
 router.delete(
     "/:id",
     [
+        validateJWT,
+        roleIsAuthorized("ADMIN_ROLE"),
         check("id", "Id is not valid").isMongoId(),
         check("id").custom(existCategoryById),
         validateFields
