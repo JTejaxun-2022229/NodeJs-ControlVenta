@@ -1,5 +1,5 @@
 import jwt from "jsonwebtoken";
-import Admin from "../admin/admin.model.js";
+import User from "../user/user.model.js";
 import { request, response } from "express";
 
 export const validateJWT = async (req = request, res = response, next) => {
@@ -11,17 +11,17 @@ export const validateJWT = async (req = request, res = response, next) => {
 
     try {
         const { uid } = jwt.verify(token, process.env.SECRETPRIVATEKEY);
-        const admin = await Admin.findById(uid);
+        const user = await User.findById(uid);
 
-        if (!admin) {
+        if (!user) {
             return res.status(401).json({ msg: "User does not exist in the database" });
         }
 
-        if (!admin.status) {
+        if (!user.status) {
             return res.status(401).json({ msg: "Invalid Token, user with status false" });
         }
 
-        req.admin = admin;
+        req.user = user;
         next();
 
     } catch (e) {

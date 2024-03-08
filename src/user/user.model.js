@@ -15,10 +15,15 @@ const UserSchema = mongoose.Schema({
         type: String,
         require: [true, 'Password is neccessary']
     },
-    receipts:{
+    role: {
+        type: String,
+        enum: ["ADMIN_ROLE", "CLIENT_ROLE"],
+        default: "CLIENT_ROLE"
+    },
+    receipts: {
         type: Array
     },
-    status:{
+    status: {
         type: Boolean,
         default: true
     }

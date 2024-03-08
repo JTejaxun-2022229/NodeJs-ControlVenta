@@ -1,13 +1,16 @@
 import { Router } from "express";
 import { check } from "express-validator";
 import { categoryPost, categoryGet, categoryPut, categoryDelete } from "./category.controller.js";
-import { existCategory, existCategoryById} from "../helpers/db-validators.js";
+import { existCategory, existCategoryById } from "../helpers/db-validators.js";
 import { validateFields } from "../middlewares/validateFields.js";
 import { validateJWT } from "../middlewares/validateJWT.js";
 
-const  router = Router();
+const router = Router();
 
-router.get("/", categoryGet);
+router.get(
+    "/",
+    categoryGet
+);
 
 router.post(
     "/",
@@ -22,7 +25,7 @@ router.post(
 router.put(
     "/:id",
     [
-        check("id","Id is not valid").isMongoId(),
+        check("id", "Id is not valid").isMongoId(),
         check("id").customSanitizer(existCategoryById),
         validateFields
     ],
@@ -32,7 +35,7 @@ router.put(
 router.delete(
     "/:id",
     [
-        check("id","Id is not valid").isMongoId(),
+        check("id", "Id is not valid").isMongoId(),
         check("id").customSanitizer(existCategoryById),
         validateFields
     ],
