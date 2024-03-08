@@ -41,7 +41,7 @@ export const categoryGet = async (req = request, res = response) => {
 
 export const categoryPut = async (req, res = response) => {
     const { id } = req.params;
-    const { _id, status, ...remain } = req.body;
+    const { _id, ...remain } = req.body;
 
     await Category.findByIdAndUpdate(id, remain);
 

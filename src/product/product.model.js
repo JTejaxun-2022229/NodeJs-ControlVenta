@@ -1,14 +1,11 @@
-import  mongoose from "mongoose";
+import mongoose from "mongoose";
 
 const ProductSchema = mongoose.Schema({
 
     productName: {
         type: String,
-        required: [true, "productName is neccessary"]
-    },
-    brand: {
-        type: String,
-        required: [true, "Brand is neccessary"]
+        required: [true, "productName is neccessary"],
+        unique: true
     },
     details: {
         type: String
@@ -17,18 +14,14 @@ const ProductSchema = mongoose.Schema({
         type: Number,
         required: [true, "Unit price is neccessary"]
     },
-    dueDate: {
-        type: Date
-    },
     stock: {
         type: Number,
         required: [true, "Stock is necessary"],
     },
     category: {
-        type: Schema.Types.ObjectId,
-        ref: category,
-        required: [true, "Category is neccessary"],
-        default: "No Category"
+        type: String,
+        enum: [],
+        default: "Product"
     },
     img: {
         type: String
@@ -37,8 +30,7 @@ const ProductSchema = mongoose.Schema({
         type: Boolean,
         default: true
     },
-}, {
-    versionKey: false
-});
+}
+);
 
 export default mongoose.model('Product', ProductSchema);

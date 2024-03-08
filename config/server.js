@@ -6,7 +6,7 @@ import helmet from 'helmet';
 import morgan from 'morgan';
 import { dbConnection } from './mongo.js';
 import userRoutes from '../src/user/user.router.js';
-import categoryRoutes from '../src/category/category.model.js';
+import categoryRoutes from '../src/category/category.routes.js';
 class Server {
     constructor() {
         this.app = express();

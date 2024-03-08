@@ -44,23 +44,25 @@ export const getUser = async (req = request, res = response) => {
 }
 
 export const updateUser = async (req, res = response) => {
-    const {id} = req.params;
-    const {_id, email, password, role, ...remain} = req.body;
+    const { id } = req.params;
+    const { _id, password, email, ...remain } = req.body;
 
-    const salt = bcryptjs.genSaltSync();
-    user.password = bcryptjs.hashSync(password, salt);
+    if (password) {
+        const salt = bcryptjs.genSaltSync();
+        remain.password = bcryptjs.hashSync(password, salt);
+    }
 
     await User.findByIdAndUpdate(id, remain);
 
-    const user = await User.finOne({_id: id});
+    const user = await User.findOne({ _id: id });
 
-    res.status(200).json({msg: 'User was update', user})
+    res.status(200).json({ msg: 'User was update', user })
 }
 
-export const deleteUser = async (req, res ) => {
-    const {id} = req.params;
+export const deleteUser = async (req, res) => {
+    const { id } = req.params;
 
-    const user = await User.findByIdAndUpdate(id, {status: false});
+    const user = await User.findByIdAndUpdate(id, { status: false });
 
-    res.status(200).json({msg: 'User has been disable', user})
+    res.status(200).json({ msg: 'User has been disable', user })
 }

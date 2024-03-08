@@ -26,7 +26,7 @@ router.put(
     "/:id",
     [
         check("id", "Id is not valid").isMongoId(),
-        check("id").customSanitizer(existCategoryById),
+        check("id").custom(existCategoryById),
         validateFields
     ],
     categoryPut
@@ -36,7 +36,7 @@ router.delete(
     "/:id",
     [
         check("id", "Id is not valid").isMongoId(),
-        check("id").customSanitizer(existCategoryById),
+        check("id").custom(existCategoryById),
         validateFields
     ],
     categoryDelete
