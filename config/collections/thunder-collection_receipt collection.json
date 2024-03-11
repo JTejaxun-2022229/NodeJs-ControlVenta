@@ -1,0 +1,61 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "receipt collection",
+    "dateExported": "2024-03-11T05:44:01.528Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "2146d6b1-678a-4bb3-b134-3b9fc2bae872",
+            "colId": "f3480fc4-4d3e-42b8-8abe-d54cf2b3060c",
+            "containerId": "",
+            "name": "create receipt",
+            "url": "http://localhost:3000/api/v1/receipts",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2024-03-11T04:30:30.829Z",
+            "modified": "2024-03-11T05:41:38.224Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWVhN2Y1NWE2MmM2YWRmNzUxMDZjZTIiLCJpYXQiOjE3MTAxMzU2ODQsImV4cCI6MTcxMDIyMjA4NH0.BIuaxPqZgC7YusAHDD6610fQfdoekfFU1Ydh620R9Bo"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\r\n  \"userName\": \"Jose Tejaxun\",\r\n  \"products\": [\r\n    {\r\n      \"product\": \"Bag of White Rice, 5kg\",\r\n      \"quantity\": 2\r\n    }\r\n  ]\r\n}\r\n",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "dd61bf22-09a3-4653-98ed-633510391207",
+            "colId": "f3480fc4-4d3e-42b8-8abe-d54cf2b3060c",
+            "containerId": "",
+            "name": "get receipt",
+            "url": "http://localhost:3000/api/v1/receipts",
+            "method": "GET",
+            "sortNum": 40000,
+            "created": "2024-03-11T05:15:03.352Z",
+            "modified": "2024-03-11T05:15:06.801Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "e2a6668b-bd91-416e-942a-85acf24dc2d1",
+            "colId": "f3480fc4-4d3e-42b8-8abe-d54cf2b3060c",
+            "containerId": "",
+            "name": "update receipt",
+            "url": "http://localhost:3000/api/v1/receipts",
+            "method": "PUT",
+            "sortNum": 50000,
+            "created": "2024-03-11T05:15:20.134Z",
+            "modified": "2024-03-11T05:15:24.438Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        }
+    ]
+}

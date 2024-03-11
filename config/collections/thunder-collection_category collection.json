@@ -1,0 +1,76 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "category collection",
+    "dateExported": "2024-03-08T05:54:23.707Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "c493b888-29bc-4c29-86ba-2d3b772809f3",
+            "colId": "68063209-fb88-453b-962a-fa50322ae776",
+            "containerId": "",
+            "name": "create category",
+            "url": "http://localhost:3000/api/v1/categories",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2024-03-08T05:37:19.893Z",
+            "modified": "2024-03-08T05:41:12.297Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"categoryName\": \"Groceries\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "5e6d4b23-3267-447c-8be4-004f0668a1da",
+            "colId": "68063209-fb88-453b-962a-fa50322ae776",
+            "containerId": "",
+            "name": "get category",
+            "url": "http://localhost:3000/api/v1/categories",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2024-03-08T05:41:21.405Z",
+            "modified": "2024-03-08T05:41:27.513Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "b984172e-d3c1-41dc-b478-a31e314c4a22",
+            "colId": "68063209-fb88-453b-962a-fa50322ae776",
+            "containerId": "",
+            "name": "update category",
+            "url": "http://localhost:3000/api/v1/categories/65eaa4c33ef30c8885caf245",
+            "method": "PUT",
+            "sortNum": 30000,
+            "created": "2024-03-08T05:41:42.297Z",
+            "modified": "2024-03-08T05:54:10.822Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"categoryName\": \"Drinks\"\n}",
+                "form": []
+            },
+            "reqType": "put",
+            "tests": []
+        },
+        {
+            "_id": "1179de5f-b8b4-497f-8c72-f065a0147666",
+            "colId": "68063209-fb88-453b-962a-fa50322ae776",
+            "containerId": "",
+            "name": "delete category",
+            "url": "http://localhost:3000/api/v1/categories/65eaa4c33ef30c8885caf245",
+            "method": "DELETE",
+            "sortNum": 40000,
+            "created": "2024-03-08T05:48:26.567Z",
+            "modified": "2024-03-08T05:48:33.564Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        }
+    ]
+}
