@@ -1,0 +1,72 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "receipt collection",
+    "dateExported": "2024-03-18T13:48:49.233Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "aba6da31-1fc1-45bd-83c6-65348505379b",
+            "colId": "bf63f2ed-4294-4e38-b469-c9b78be529fa",
+            "containerId": "",
+            "name": "create receipt",
+            "url": "http://localhost:3000/api/v1/receipts",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2024-03-18T05:23:34.232Z",
+            "modified": "2024-03-18T13:47:23.092Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWVhN2Y2Y2E2MmM2YWRmNzUxMDZjZTUiLCJpYXQiOjE3MTA3NDE1MTQsImV4cCI6MTcxMDgyNzkxNH0.f3vEOfrgQNFOluKGxuC-iYlpwOJGiTPXlXBqcmi4aY0"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"productName\": \"Soap ProteX, gel\",\n    \"quantity\": 2,\n    \"userEmail\": \"jtejaxun@gmail.com\"\n}\n\n",
+                "form": []
+            },
+            "reqType": "post",
+            "tests": []
+        },
+        {
+            "_id": "6d2e5339-8d65-4b3a-a15e-855076e49b43",
+            "colId": "bf63f2ed-4294-4e38-b469-c9b78be529fa",
+            "containerId": "",
+            "name": "get receipt",
+            "url": "http://localhost:3000/api/v1/receipts",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2024-03-18T06:08:52.684Z",
+            "modified": "2024-03-18T06:18:57.324Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWVhN2Y2Y2E2MmM2YWRmNzUxMDZjZTUiLCJpYXQiOjE3MTA3NDE1MTQsImV4cCI6MTcxMDgyNzkxNH0.f3vEOfrgQNFOluKGxuC-iYlpwOJGiTPXlXBqcmi4aY0"
+                }
+            ],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "121c023d-3cd2-4365-8752-c200e2325387",
+            "colId": "bf63f2ed-4294-4e38-b469-c9b78be529fa",
+            "containerId": "",
+            "name": "get receipt by user",
+            "url": "http://localhost:3000/api/v1/receipts/65ea7f55a62c6adf75106ce2",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2024-03-18T13:23:04.783Z",
+            "modified": "2024-03-18T13:37:04.792Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWVhN2Y2Y2E2MmM2YWRmNzUxMDZjZTUiLCJpYXQiOjE3MTA3Njg5NjEsImV4cCI6MTcxMDg1NTM2MX0.EosQHFKw5gPk9CeClCnsb4sYBIWzWjTY4vsxJuAbt78"
+                }
+            ],
+            "params": [],
+            "tests": []
+        }
+    ]
+}

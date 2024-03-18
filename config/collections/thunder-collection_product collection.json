@@ -1,0 +1,94 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "product collection",
+    "dateExported": "2024-03-18T13:48:43.961Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "35d0cbc6-3acb-4276-be1b-b6e06ef8c040",
+            "colId": "0e05d1e5-4bb5-4282-b78e-22d45413c688",
+            "containerId": "",
+            "name": "create product",
+            "url": "http://localhost:3000/api/v1/products",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2024-03-08T12:56:32.041Z",
+            "modified": "2024-03-17T18:59:39.957Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWVhN2Y2Y2E2MmM2YWRmNzUxMDZjZTUiLCJpYXQiOjE3MTA3MDA0OTYsImV4cCI6MTcxMDc4Njg5Nn0.uOf7JXnxpyFPBO3UuPskyANWDt3aMa3_VRTxRIFGCEg"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"productName\": \"Soap ProteX, gel\",\n  \"unitPrice\": 6.00,\n  \"stock\": 1200\n}",
+                "form": []
+            },
+            "reqType": "post",
+            "tests": []
+        },
+        {
+            "_id": "10c6adef-d06b-4ba5-a95e-5444abfc218c",
+            "colId": "0e05d1e5-4bb5-4282-b78e-22d45413c688",
+            "containerId": "",
+            "name": "get product",
+            "url": "http://localhost:3000/api/v1/products",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2024-03-08T13:25:31.123Z",
+            "modified": "2024-03-17T19:02:17.539Z",
+            "headers": [],
+            "params": [],
+            "reqType": "get",
+            "tests": []
+        },
+        {
+            "_id": "850b3596-13f1-428a-b695-0c46fccb768f",
+            "colId": "0e05d1e5-4bb5-4282-b78e-22d45413c688",
+            "containerId": "",
+            "name": "update product",
+            "url": "http://localhost:3000/api/v1/products/65eb1313f7c3f74d4b4099c3",
+            "method": "PUT",
+            "sortNum": 40000,
+            "created": "2024-03-08T13:33:36.404Z",
+            "modified": "2024-03-17T19:02:49.059Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWVhN2Y2Y2E2MmM2YWRmNzUxMDZjZTUiLCJpYXQiOjE3MTA3MDA0OTYsImV4cCI6MTcxMDc4Njg5Nn0.uOf7JXnxpyFPBO3UuPskyANWDt3aMa3_VRTxRIFGCEg"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"productName\": \"Bag of Yellow Rice, 15kg\",\n  \"unitPrice\": 40.00,\n  \"stock\": 120,\n  \"category\": \"groceries\",\n  \"status\": true\n}",
+                "form": []
+            },
+            "reqType": "put",
+            "tests": []
+        },
+        {
+            "_id": "67fdda15-6ae6-47f8-9317-a7e9a8a3d320",
+            "colId": "0e05d1e5-4bb5-4282-b78e-22d45413c688",
+            "containerId": "",
+            "name": "delete product",
+            "url": "http://localhost:3000/api/v1/products/65eb1313f7c3f74d4b4099c3",
+            "method": "DELETE",
+            "sortNum": 50000,
+            "created": "2024-03-08T13:35:22.603Z",
+            "modified": "2024-03-17T19:05:51.927Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWVhN2Y2Y2E2MmM2YWRmNzUxMDZjZTUiLCJpYXQiOjE3MTA3MDA0OTYsImV4cCI6MTcxMDc4Njg5Nn0.uOf7JXnxpyFPBO3UuPskyANWDt3aMa3_VRTxRIFGCEg"
+                }
+            ],
+            "params": [],
+            "reqType": "del",
+            "tests": []
+        }
+    ]
+}
