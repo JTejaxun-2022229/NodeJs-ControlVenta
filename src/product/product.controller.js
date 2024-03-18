@@ -41,7 +41,7 @@ export const getProduct = async (req = request, res = response) => {
 
 export const updateProduct = async (req, res = response) => {
     const { id } = req.params;
-    const { _id, status, ...remain } = req.body;
+    const { _id, ...remain } = req.body;
 
     await Product.findByIdAndUpdate(id, remain);
 

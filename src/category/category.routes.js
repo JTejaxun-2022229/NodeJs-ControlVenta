@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { check } from "express-validator";
 import { createCategory, getCategory, updateCategory, deleteCategory } from "./category.controller.js";
-import { existCategory, existCategoryById } from "../helpers/db-validators.js";
+import { existCategory, statusCategory, existCategoryById } from "../helpers/db-validators.js";
 import { validateFields } from "../middlewares/validateFields.js";
 import { validateJWT } from "../middlewares/validateJWT.js";
 import { roleIsAuthorized } from "../middlewares/validateRole.js";

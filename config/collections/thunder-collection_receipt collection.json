@@ -1,59 +1,70 @@
 {
     "client": "Thunder Client",
     "collectionName": "receipt collection",
-    "dateExported": "2024-03-11T05:44:01.528Z",
+    "dateExported": "2024-03-18T13:48:49.233Z",
     "version": "1.1",
     "folders": [],
     "requests": [
         {
-            "_id": "2146d6b1-678a-4bb3-b134-3b9fc2bae872",
-            "colId": "f3480fc4-4d3e-42b8-8abe-d54cf2b3060c",
+            "_id": "aba6da31-1fc1-45bd-83c6-65348505379b",
+            "colId": "bf63f2ed-4294-4e38-b469-c9b78be529fa",
             "containerId": "",
             "name": "create receipt",
             "url": "http://localhost:3000/api/v1/receipts",
             "method": "POST",
-            "sortNum": 30000,
-            "created": "2024-03-11T04:30:30.829Z",
-            "modified": "2024-03-11T05:41:38.224Z",
+            "sortNum": 10000,
+            "created": "2024-03-18T05:23:34.232Z",
+            "modified": "2024-03-18T13:47:23.092Z",
             "headers": [
                 {
                     "name": "x-token",
-                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWVhN2Y1NWE2MmM2YWRmNzUxMDZjZTIiLCJpYXQiOjE3MTAxMzU2ODQsImV4cCI6MTcxMDIyMjA4NH0.BIuaxPqZgC7YusAHDD6610fQfdoekfFU1Ydh620R9Bo"
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWVhN2Y2Y2E2MmM2YWRmNzUxMDZjZTUiLCJpYXQiOjE3MTA3NDE1MTQsImV4cCI6MTcxMDgyNzkxNH0.f3vEOfrgQNFOluKGxuC-iYlpwOJGiTPXlXBqcmi4aY0"
                 }
             ],
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\r\n  \"userName\": \"Jose Tejaxun\",\r\n  \"products\": [\r\n    {\r\n      \"product\": \"Bag of White Rice, 5kg\",\r\n      \"quantity\": 2\r\n    }\r\n  ]\r\n}\r\n",
+                "raw": "{\n    \"productName\": \"Soap ProteX, gel\",\n    \"quantity\": 2,\n    \"userEmail\": \"jtejaxun@gmail.com\"\n}\n\n",
                 "form": []
             },
+            "reqType": "post",
             "tests": []
         },
         {
-            "_id": "dd61bf22-09a3-4653-98ed-633510391207",
-            "colId": "f3480fc4-4d3e-42b8-8abe-d54cf2b3060c",
+            "_id": "6d2e5339-8d65-4b3a-a15e-855076e49b43",
+            "colId": "bf63f2ed-4294-4e38-b469-c9b78be529fa",
             "containerId": "",
             "name": "get receipt",
             "url": "http://localhost:3000/api/v1/receipts",
             "method": "GET",
-            "sortNum": 40000,
-            "created": "2024-03-11T05:15:03.352Z",
-            "modified": "2024-03-11T05:15:06.801Z",
-            "headers": [],
+            "sortNum": 20000,
+            "created": "2024-03-18T06:08:52.684Z",
+            "modified": "2024-03-18T06:18:57.324Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWVhN2Y2Y2E2MmM2YWRmNzUxMDZjZTUiLCJpYXQiOjE3MTA3NDE1MTQsImV4cCI6MTcxMDgyNzkxNH0.f3vEOfrgQNFOluKGxuC-iYlpwOJGiTPXlXBqcmi4aY0"
+                }
+            ],
             "params": [],
             "tests": []
         },
         {
-            "_id": "e2a6668b-bd91-416e-942a-85acf24dc2d1",
-            "colId": "f3480fc4-4d3e-42b8-8abe-d54cf2b3060c",
+            "_id": "121c023d-3cd2-4365-8752-c200e2325387",
+            "colId": "bf63f2ed-4294-4e38-b469-c9b78be529fa",
             "containerId": "",
-            "name": "update receipt",
-            "url": "http://localhost:3000/api/v1/receipts",
-            "method": "PUT",
-            "sortNum": 50000,
-            "created": "2024-03-11T05:15:20.134Z",
-            "modified": "2024-03-11T05:15:24.438Z",
-            "headers": [],
+            "name": "get receipt by user",
+            "url": "http://localhost:3000/api/v1/receipts/65ea7f55a62c6adf75106ce2",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2024-03-18T13:23:04.783Z",
+            "modified": "2024-03-18T13:37:04.792Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWVhN2Y2Y2E2MmM2YWRmNzUxMDZjZTUiLCJpYXQiOjE3MTA3Njg5NjEsImV4cCI6MTcxMDg1NTM2MX0.EosQHFKw5gPk9CeClCnsb4sYBIWzWjTY4vsxJuAbt78"
+                }
+            ],
             "params": [],
             "tests": []
         }
