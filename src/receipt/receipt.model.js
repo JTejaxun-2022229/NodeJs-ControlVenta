@@ -1,11 +1,7 @@
 import mongoose from "mongoose";
 
 const ReceiptSchema = mongoose.Schema({
-    user: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User',
-        required: true
-    },
+
     products: [{
         product: {
             type: mongoose.Schema.Types.ObjectId,
@@ -15,12 +11,21 @@ const ReceiptSchema = mongoose.Schema({
         quantity: {
             type: Number,
             required: true
+        },
+        subtotal: {
+            type: Number,
+            required: true
         }
     }],
     totalAmount: {
         type: Number,
         required: true
-    }
+    },
+    user: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+        required: true
+    },
 });
 
 export default mongoose.model('Receipt', ReceiptSchema);

@@ -29,3 +29,22 @@ export const validateJWT = async (req = request, res = response, next) => {
         res.status(401).json({ msg: "Invalid Token" })
     }
 }
+
+export const compareUser = async (id, token, res) => {
+    try {
+        const decodedToken = jwt.verify(token, process.env.SECRETPRIVATEKEY);
+        const jwtId = decodedToken.uid;
+
+        const user = await User.findById(jwtId);
+
+        if (!user || !user.status) {
+            return false;
+        }
+
+        return user._id.toString() === id;
+
+    } catch (e) {
+        console.log(e);
+        return false;
+    }
+};

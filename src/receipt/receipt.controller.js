@@ -1,107 +1,98 @@
 import { request, response } from "express";
 import Receipt from './receipt.model.js';
+import User from '../user/user.model.js'
 import Product from '../product/product.model.js';
-import User from '../user/user.model.js';
 
+export const createReceipt = async (req = request, res = response) => {
 
-export const createReceipt = async (req, res) => {
     try {
-        const { userName, products } = req.body;
 
-        let user = await User.findOne({ name: userName });
+        const { productName, quantity, userEmail } = req.body;
+
+        const product = await Product.findOne({ productName });
+
+        if (!product) {
+            return res.status(404).json({ msg: "Product not found" });
+        }
+
+        const subtotal = product.unitPrice * quantity;
+
+        if (product.stock < quantity) {
+            return res.status(400).json({ msg: "Insufficient stock" });
+        }
+
+        const user = await User.findOne({ email: userEmail });
+
         if (!user) {
-            return res.status(404).json({ msg: 'User not found' });
-        }
-
-        for (const productItem of products) {
-            const product = await Product.findOne({ productName: productItem.productName });
-            if (!product) {
-                return res.status(400).json({ msg: `Product ${productItem.productName} not found` });
-            }
-
-            if (productItem.quantity > product.stock) {
-                return res.status(400).json({ msg: `Insufficient stock for product ${productItem.productName}` });
-            }
-        }
-
-        let totalAmount = 0;
-        for (const productItem of products) {
-            const product = await Product.findOne({ productName: productItem.productName });
-            totalAmount += product.unitPrice * productItem.quantity;
+            return res.status(404).json({ msg: "User not found" });
         }
 
         const receipt = new Receipt({
             user: user._id,
-            products,
-            totalAmount
+            products: [{
+                product: product._id,
+                quantity,
+                subtotal
+            }],
+            totalAmount: subtotal
         });
 
         await receipt.save();
 
-        for (const productItem of products) {
-            const product = await Product.findOne({ productName: productItem.productName });
-            product.stock -= productItem.quantity;
-            await product.save();
-        }
+        product.stock -= quantity;
+        await product.save();
 
-        user.receipts.push(receipt._id);
-        await user.save();
-
-        res.status(201).json({ msg: 'Receipt created successfully', receipt });
+        res.status(201).json(receipt);
         
     } catch (error) {
-        console.error(error);
-        res.status(500).json({ msg: 'Internal server error' });
+        res.status(500).json({ msg: error.msg });
     }
 };
 
 export const getReceipts = async (req, res) => {
     try {
-        const [total, receipts] = await Promise.all([
-            Receipt.countDocuments(),
-            Receipt.find()
-        ]);
-        res.status(200).json({ total, receipts });
-    } catch (error) {
-        console.error(error);
-        res.status(500).json({ msg: 'Internal server error' });
+        const receipts = await Receipt.find().populate({
+            path: 'user',
+            select: 'email'
+        }).populate({
+            path: 'products.product',
+            select: ['productName', 'unitPrice']
+        });
+
+        const total = receipts.length;
+
+        res.status(200).json({
+            total: total,
+            data: receipts,
+        });
+
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ msg: 'Server Error' });
     }
 };
 
 export const getReceiptsByUser = async (req, res) => {
     try {
-        const { userId } = req.params;
+        const { id } = req.params
 
-        const user = await User.findById(userId);
-        if (!user) {
-            return res.status(404).json({ msg: 'User not found' });
-        }
+        const receipts = await Receipt.find({ user: id }).populate({
+            path: 'user',
+            select: 'email'
+        }).populate({
+            path: 'products.product',
+            select: ['productName', 'unitPrice']
+        });
 
-        const receipts = await Receipt.find({ user: userId });
+        const total = receipts.length;
 
-        res.status(200).json({ receipts });
+        res.status(200).json({
+            total: total,
+            data: receipts,
+        });
 
-    } catch (error) {
-        console.error(error);
-        res.status(500).json({ msg: 'Internal server error' });
-    }
-};
-
-export const updateReceipt = async (req, res) => {
-    try {
-        const { receiptId } = req.params;
-        const updateData = req.body;
-
-        const updatedReceipt = await Receipt.findByIdAndUpdate(receiptId, updateData, { new: true });
-
-        if (!updatedReceipt) {
-            return res.status(404).json({ msg: 'Receipt not found' });
-        }
-
-        res.status(200).json({ msg: 'Receipt updated successfully', receipt: updatedReceipt });
-
-    } catch (error) {
-        console.error(error);
-        res.status(500).json({ msg: 'Receipt can not be update' });
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ msg: 'Server Error' });
     }
 };

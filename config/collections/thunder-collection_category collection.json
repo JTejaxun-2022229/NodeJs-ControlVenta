@@ -1,7 +1,7 @@
 {
     "client": "Thunder Client",
     "collectionName": "category collection",
-    "dateExported": "2024-03-08T05:54:23.707Z",
+    "dateExported": "2024-03-18T13:48:30.032Z",
     "version": "1.1",
     "folders": [],
     "requests": [
@@ -14,14 +14,20 @@
             "method": "POST",
             "sortNum": 10000,
             "created": "2024-03-08T05:37:19.893Z",
-            "modified": "2024-03-08T05:41:12.297Z",
-            "headers": [],
+            "modified": "2024-03-17T18:54:44.767Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWVhN2Y2Y2E2MmM2YWRmNzUxMDZjZTUiLCJpYXQiOjE3MTA3MDA0OTYsImV4cCI6MTcxMDc4Njg5Nn0.uOf7JXnxpyFPBO3UuPskyANWDt3aMa3_VRTxRIFGCEg"
+                }
+            ],
             "params": [],
             "body": {
                 "type": "json",
                 "raw": "{\n  \"categoryName\": \"Groceries\"\n}",
                 "form": []
             },
+            "reqType": "post",
             "tests": []
         },
         {
@@ -29,13 +35,25 @@
             "colId": "68063209-fb88-453b-962a-fa50322ae776",
             "containerId": "",
             "name": "get category",
-            "url": "http://localhost:3000/api/v1/categories",
+            "url": "http://localhost:3000/api/v1/categories?categoryName=",
             "method": "GET",
             "sortNum": 20000,
             "created": "2024-03-08T05:41:21.405Z",
-            "modified": "2024-03-08T05:41:27.513Z",
-            "headers": [],
-            "params": [],
+            "modified": "2024-03-18T04:48:56.445Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWVhN2Y2Y2E2MmM2YWRmNzUxMDZjZTUiLCJpYXQiOjE3MTA3MDA0OTYsImV4cCI6MTcxMDc4Njg5Nn0.uOf7JXnxpyFPBO3UuPskyANWDt3aMa3_VRTxRIFGCEg"
+                }
+            ],
+            "params": [
+                {
+                    "name": "categoryName",
+                    "value": "",
+                    "isPath": false
+                }
+            ],
+            "reqType": "get",
             "tests": []
         },
         {
@@ -47,8 +65,13 @@
             "method": "PUT",
             "sortNum": 30000,
             "created": "2024-03-08T05:41:42.297Z",
-            "modified": "2024-03-08T05:54:10.822Z",
-            "headers": [],
+            "modified": "2024-03-08T14:50:27.521Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWVhN2Y1NWE2MmM2YWRmNzUxMDZjZTIiLCJpYXQiOjE3MDk5MDkzMjQsImV4cCI6MTcwOTk5NTcyNH0.ApU5dMaMqVcwsW48N-Z9En1lxsNuF3gv3qOYww7sik0"
+                }
+            ],
             "params": [],
             "body": {
                 "type": "json",
@@ -63,13 +86,19 @@
             "colId": "68063209-fb88-453b-962a-fa50322ae776",
             "containerId": "",
             "name": "delete category",
-            "url": "http://localhost:3000/api/v1/categories/65eaa4c33ef30c8885caf245",
+            "url": "http://localhost:3000/api/v1/categories/65ebdb4a4a1d08c9035ad389",
             "method": "DELETE",
             "sortNum": 40000,
             "created": "2024-03-08T05:48:26.567Z",
-            "modified": "2024-03-08T05:48:33.564Z",
-            "headers": [],
+            "modified": "2024-03-18T04:51:11.204Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWVhN2Y2Y2E2MmM2YWRmNzUxMDZjZTUiLCJpYXQiOjE3MTA3MzcyNTYsImV4cCI6MTcxMDgyMzY1Nn0.S64eXfGw3u8J7csWxn4fTC0onDwZJWk6c96vbrleQ4I"
+                }
+            ],
             "params": [],
+            "reqType": "del",
             "tests": []
         }
     ]

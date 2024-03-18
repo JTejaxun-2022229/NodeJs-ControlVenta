@@ -3,7 +3,7 @@ import { check } from "express-validator";
 import { createUser, getUser, updateUser, deleteUser } from "./user.controller.js";
 import { existEmail, existUserById } from "../helpers/db-validators.js";
 import { validateFields } from "../middlewares/validateFields.js";
-import { validateJWT } from "../middlewares/validateJWT.js";
+import { validateJWT, compareUser } from "../middlewares/validateJWT.js";
 import { roleIsAuthorized } from "../middlewares/validateRole.js";
 
 const router = Router();
@@ -30,6 +30,7 @@ router.get(
 router.put(
     "/:id",
     [
+        validateJWT,
         check('id', 'No es un id válido').isMongoId(),
         check('id').custom(existUserById),
         validateFields
@@ -40,6 +41,7 @@ router.put(
 router.delete(
     "/:id",
     [
+        validateJWT,
         check('id', 'No es un id válido').isMongoId(),
         check('id').custom(existUserById),
         validateFields

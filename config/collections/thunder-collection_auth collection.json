@@ -1,7 +1,7 @@
 {
     "client": "Thunder Client",
     "collectionName": "auth collection",
-    "dateExported": "2024-03-08T12:55:08.660Z",
+    "dateExported": "2024-03-18T13:48:36.777Z",
     "version": "1.1",
     "folders": [],
     "requests": [
@@ -14,7 +14,7 @@
             "method": "POST",
             "sortNum": 10000,
             "created": "2024-03-08T12:50:45.258Z",
-            "modified": "2024-03-08T12:54:12.859Z",
+            "modified": "2024-03-17T18:34:57.013Z",
             "headers": [],
             "params": [],
             "body": {
@@ -22,6 +22,7 @@
                 "raw": "{\n  \"email\": \"jtejaxun123@gmail.com\",\n  \"password\": \"hola123\"\n}",
                 "form": []
             },
+            "reqType": "post",
             "tests": []
         }
     ]
