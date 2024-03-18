@@ -1,7 +1,7 @@
 {
     "client": "Thunder Client",
     "collectionName": "user collection",
-    "dateExported": "2024-03-08T04:33:45.212Z",
+    "dateExported": "2024-03-18T13:48:21.857Z",
     "version": "1.1",
     "folders": [],
     "requests": [
@@ -33,9 +33,15 @@
             "method": "GET",
             "sortNum": 20000,
             "created": "2024-03-08T03:07:24.915Z",
-            "modified": "2024-03-08T03:07:27.665Z",
-            "headers": [],
+            "modified": "2024-03-18T13:36:48.524Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWVhN2Y2Y2E2MmM2YWRmNzUxMDZjZTUiLCJpYXQiOjE3MTA3Njg5NjEsImV4cCI6MTcxMDg1NTM2MX0.EosQHFKw5gPk9CeClCnsb4sYBIWzWjTY4vsxJuAbt78"
+                }
+            ],
             "params": [],
+            "reqType": "get",
             "tests": []
         },
         {
@@ -47,8 +53,13 @@
             "method": "PUT",
             "sortNum": 30000,
             "created": "2024-03-08T03:51:02.868Z",
-            "modified": "2024-03-08T04:31:22.614Z",
-            "headers": [],
+            "modified": "2024-03-17T18:49:23.497Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWVhN2Y2Y2E2MmM2YWRmNzUxMDZjZTUiLCJpYXQiOjE3MTA3MDA0OTYsImV4cCI6MTcxMDc4Njg5Nn0.uOf7JXnxpyFPBO3UuPskyANWDt3aMa3_VRTxRIFGCEg"
+                }
+            ],
             "params": [],
             "body": {
                 "type": "json",
@@ -67,10 +78,15 @@
             "method": "DELETE",
             "sortNum": 40000,
             "created": "2024-03-08T03:51:12.423Z",
-            "modified": "2024-03-08T04:12:42.700Z",
-            "headers": [],
+            "modified": "2024-03-17T18:51:57.670Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWVhN2Y2Y2E2MmM2YWRmNzUxMDZjZTUiLCJpYXQiOjE3MTA3MDA0OTYsImV4cCI6MTcxMDc4Njg5Nn0.uOf7JXnxpyFPBO3UuPskyANWDt3aMa3_VRTxRIFGCEg"
+                }
+            ],
             "params": [],
-            "reqType": "get",
+            "reqType": "del",
             "tests": []
         }
     ]

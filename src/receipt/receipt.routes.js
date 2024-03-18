@@ -1,35 +1,36 @@
 import { Router } from "express";
 import { check } from "express-validator";
-import { createReceipt, getReceipts, getReceiptsByUser, updateReceipt } from '../receipt/receipt.controller.js';
+import { createReceipt, getReceipts, getReceiptsByUser } from '../receipt/receipt.controller.js';
+import { existUserById } from "../helpers/db-validators.js";
 import { validateFields } from "../middlewares/validateFields.js";
 import { validateJWT } from "../middlewares/validateJWT.js";
 import { roleIsAuthorized } from "../middlewares/validateRole.js";
 
 const router = Router();
 
-router.post('/',
-    [
-        validateJWT,
-        roleIsAuthorized("CLIENT_ROLE"),
-        validateFields
-    ],
+router.post(
+    '/',
+    validateJWT,
+    validateFields,
     createReceipt
 );
 
-router.get('/',
-    getReceipts,
+router.get(
+    '/',
+    validateJWT,
     roleIsAuthorized("ADMIN_ROLE"),
-    validateJWT
+    getReceipts
 );
 
 
-router.get('/:id',
-
+router.get(
+    '/:id',
+    [
+        validateJWT,
+        check('id', 'No es un id válido').isMongoId(),
+        check('id').custom(existUserById)
+    ],
     getReceiptsByUser
-);
-
-router.put('/:id',
-    updateReceipt
 );
 
 export default router;

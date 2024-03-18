@@ -1,4 +1,5 @@
 import { request, response } from "express";
+import { compareUser } from "../middlewares/validateJWT.js";
 import bcryptjs from "bcryptjs";
 import User from "../user/user.model.js";
 
@@ -45,7 +46,15 @@ export const getUser = async (req = request, res = response) => {
 
 export const updateUser = async (req, res = response) => {
     const { id } = req.params;
-    const { _id, password, email, ...remain } = req.body;
+    const token = req.header('x-token');
+
+    const match = await compareUser(id, token);
+
+    if (!match) {
+        return res.status(401).json({ msg: "This user is not yours, you can not modify" });
+    }
+
+    const { _id, password, email, role, ...remain } = req.body;
 
     if (password) {
         const salt = bcryptjs.genSaltSync();
@@ -61,7 +70,14 @@ export const updateUser = async (req, res = response) => {
 
 export const deleteUser = async (req, res) => {
     const { id } = req.params;
+    const token = req.header('x-token');
 
+    const match = await compareUser(id, token);
+
+    if (!match) {
+        return res.status(401).json({ msg: "This user is not yours, you can not modify" });
+    }
+    
     const user = await User.findByIdAndUpdate(id, { status: false });
 
     res.status(200).json({ msg: 'User has been disable', user })
